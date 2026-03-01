@@ -1,8 +1,9 @@
 provider "aws" {
-  region = "ap-southeast-2"
+    region = "ap-southeast-2"
 }
 
-resource "aws_instance" "example" {
-  ami           = var.ami
-  instance_type = var.instance_type
+module "ec2_instance" {
+    source = "./ec2_instance"
+    ami = "ami-0ba8d27d35e9915fb"
+    instance_type = "t2.micro"
 }
